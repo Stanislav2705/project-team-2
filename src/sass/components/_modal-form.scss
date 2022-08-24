@@ -15,43 +15,43 @@
 //   pointer-events: none;
 // }
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
+// .modal {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 280px;
 
-  @media screen and (min-width: 768px) {
-    width: 700px;
-  }
+//   @media screen and (min-width: 768px) {
+//     width: 700px;
+//   }
 
-  @media screen and (min-width: 1280px) {
-    width: 800px;
-  }
-  background-color: var(--contacts-bg-color);
-}
+//   @media screen and (min-width: 1280px) {
+//     width: 800px;
+//   }
+//   background-color: var(--contacts-bg-color);
+// }
 
-.modal-close__btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid var(--primary-accent-color);
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  &:hover,
-  &:focus {
-    border-color: var(--accent-color);
-  }
-  &:hover .modal-close__icon,
-  &:focus .modal-close__icon {
-    fill: var(--accent-color);
-  }
-}
+// .modal-close__btn {
+//   position: absolute;
+//   top: 8px;
+//   right: 8px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50%;
+//   border: 1px solid var(--primary-accent-color);
+//   background-color: transparent;
+//   padding: 0;
+//   cursor: pointer;
+//   &:hover,
+//   &:focus {
+//     border-color: var(--accent-color);
+//   }
+//   &:hover .modal-close__icon,
+//   &:focus .modal-close__icon {
+//     fill: var(--accent-color);
+//   }
+// }
