@@ -3,8 +3,8 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  padding: 13px 0px;
-  min-width: 150px;
+  padding: 13px 11px;
+  width: 110px;
   height: 44px;
   border: 1px solid var(--primary-text-color);
   border-radius: 5px;
@@ -20,5 +20,16 @@
     color: var(--primary-bg-color);
     background-color: var(--accent-color);
     border: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+    padding: 13px 9px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    margin-right: 13px;
+    margin-left: 8px;
   }
 }
