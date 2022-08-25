@@ -1,0 +1,71 @@
+.overlay-library {
+    background-color: #182025;
+    background-image: url(../images/library/mob-library-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(../images/library/mob-library-img@2x.png);
+    }
+
+    @media screen and (min-width: 768px) {
+        background-image: url(../images/library/tablet-library-img.png);
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../images/library/tablet-library-img@2x.png);
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        background-image: url(../images/library/desktop-library-img.png);
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../images/library/desktop-library-img@2x.png);
+        }
+    }
+}
+
+.library__container {
+    padding-top: 44px;
+    padding-bottom: 62px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 49px;
+        padding-bottom: 60px;
+
+    }
+}
+
+.library-wrapper {
+    margin-bottom: 66px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 40px;
+    }
+}
+
+.btn-list {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+        width: 336px;
+    }
+}
+
+.btn-list__button {
+    min-width: 129px;
+
+    @media screen and (min-width: 768px) {
+        min-width: 152px;
+    }
+}
