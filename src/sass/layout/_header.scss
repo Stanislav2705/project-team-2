@@ -51,7 +51,16 @@
     }
 }
 
-.header__title {
+.logo {
+    transition: transform 350ms linear;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+}
+
+.logo-text {
     display: none;
 
     @media screen and (min-width: 768px) {
@@ -115,6 +124,7 @@
 
 .search-movies-form__input {
     width: 260px;
+    padding: 0;
     background-color: transparent;
     border: none;
     border-radius: 0%;
