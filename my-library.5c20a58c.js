@@ -1,2 +1,0 @@
-document.querySelector(".input-js"),document.querySelector(".search-btn-js"),document.querySelector(".error-js"),document.querySelector(".link-library-js"),document.querySelector(".watched-btn-js"),document.querySelector(".queue-btn-js"),document.querySelector(".add-watched-btn-js"),document.querySelector(".add-queue-btn-js"),document.querySelector("[data-modal-close]"),document.querySelector(".section-gallery__list");
-//# sourceMappingURL=my-library.5c20a58c.js.map
