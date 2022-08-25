@@ -1,24 +1,22 @@
 <header class="header overlay">
     <div class="container header__container">
         <div class="header__wrapper">
-            <div class="wrapper">
-                <a href="./index.html" class="link">
-                    <svg class="logo" width="24px" height="24px">
-                        <use href="./images/symbol-defs.svg#icon-film"></use>
-                    </svg>
-                </a>
-                <h1 class="header__title">Filmoteka</h1>
-            </div>
+            <a href="./index.html" class="link logo">
+                <svg class="logo" width="24px" height="24px">
+                    <use href="./images/symbol-defs.svg#icon-film"></use>
+                </svg>
+                <span class="logo-text">Filmoteka</span>
+            </a>
             <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="./index.html" class="nav__link nav__link--current link">HOME</a></li>
-                    <li class="nav__item"><a href="./my-library.html" class="nav__link link">MY LIBRARY</a></li>
+                    <li class="nav__item"><a href="./my-library.html" class="nav__link link link-library-js">MY LIBRARY</a></li>
                 </ul>
             </nav>
         </div>
         <form class="search-movies-form">
             <input type="text" placeholder="Movie search" class="search-movies-form__input input-js">
-            <button type="submit" class="search-movies-form__btn">
+            <button type="submit" class="search-movies-form__btn search-btn-js">
                 <svg class="search-movies-form__icon" width="12px" height="12px">
                     <use href="./images/symbol-defs.svg#icon-search"></use>
                 </svg>
