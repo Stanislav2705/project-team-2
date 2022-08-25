@@ -98,6 +98,7 @@
 .search-movies-form {
     display: flex;
     width: 260px;
+    height: 20px;
     margin-left: auto;
     margin-right: auto;
 
@@ -142,7 +143,6 @@
 
 .search-movies-form__btn {
     width: 20px;
-    height: 20px;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #ffffff;
