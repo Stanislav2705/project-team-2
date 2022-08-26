@@ -16,15 +16,16 @@ export async function fetchFilm() {
   }
 }
 
-// export async function fetchGenre() {
-//   try {
-//     const response = await axios.get(
-//       `${BASE_URL}/genre/movie/list?api_key=${KEY}&language=uk`
-//     );
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+
+export async function fetchGenre() {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/genre/movie/list?api_key=${KEY}&language=uk`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 

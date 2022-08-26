@@ -6,13 +6,17 @@ import {
 import { generateContentGallery } from "./markup-list";
 createGallaryHome()
 
-export function createGallaryHome() {
-    fetchFilm()
-        .then(data => {
-        const markup = generateContentGallery(data.results);
-        mainRefs.galleryList.innerHTML = markup;
-        })
-        .catch(error => {
-        console.log(error)
+export async function createGallaryHome() {
+    const genres = await fetchGenre();
+    const films = await fetchFilm();
+    const genreMap = {};
+    for (const genre of genres.genres) {
+        genreMap[genre.id] = genre.name;
+    }
+    const res = films.results.map(el => {
+        el.genre = el.genre_ids.map(item => genreMap[item]);
+        return el
     })
+    const markup = generateContentGallery(res);
+    mainRefs.galleryList.innerHTML = markup;
 }
