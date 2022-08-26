@@ -6,7 +6,7 @@ function createGallary({
   vote_average,
   release_date,
 }) {
-  const genre = Object.keys(genre_ids).join(',')
+  const genre = Object.keys(genre_ids).join(',');
   const markup = `<li class="section-gallery__item">
           <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${original_title}" width="280" class="section-gallery__item__img">
           <h2 class="section-gallery__item__title">${title}</h2>
