@@ -7,3 +7,5 @@ import {
 } from './js/refs';
 import { fetchFilm } from './js/fetch-film';
 import { generateContentGallery } from './js/markup-list';
+import { createGallaryHome } from './js/create-gallary'; 
+
