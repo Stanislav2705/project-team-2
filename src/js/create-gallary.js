@@ -9,6 +9,7 @@ createGallaryHome()
 export async function createGallaryHome() {
     const genres = await fetchGenre();
     const films = await fetchFilm();
+    console.log(films)
     const genreMap = {};
     for (const genre of genres.genres) {
         genreMap[genre.id] = genre.name;
