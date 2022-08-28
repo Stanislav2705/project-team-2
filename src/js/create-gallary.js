@@ -24,7 +24,6 @@ async function searchMovies(e) {
         return;
     };
     if (movie.results.length > 0) {
-        headerHomeRefs.messageError.textContent = '';
         headerHomeRefs.inputSearch.value = '';
         const res = createGenres(genres, movie)
         const markup = generateContentGallery(res);
