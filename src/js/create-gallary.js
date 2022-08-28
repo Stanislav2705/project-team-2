@@ -1,23 +1,37 @@
-import { mainRefs } from "./refs";
+import { headerHomeRefs, mainRefs } from "./refs";
 import {
-    fetchFilm,
-    fetchGenre
+    fetchMovie,
+    fetchGenre,
+    searchMovieByKey,
 } from "./fetch-film";
+import { createGenres } from "./create-genres";
 import { generateContentGallery } from "./markup-list";
 createGallaryHome()
 
+headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
+
+async function searchMovies(e) {
+    e.preventDefault()
+    const searchKey = headerHomeRefs.inputSearch.value.trim();
+    const genres = await fetchGenre();
+    const movie = await searchMovieByKey(searchKey);
+    if (movie.results.length === 0) {
+        headerHomeRefs.messageError.textContent = 'Search result not successful. Enter the correct movie name and';
+        return;
+    };
+    if (movie.results.length > 0) {
+        headerHomeRefs.messageError.textContent = '';
+        headerHomeRefs.inputSearch.value = '';
+        const res = createGenres(genres, movie)
+        const markup = generateContentGallery(res);
+        mainRefs.galleryList.innerHTML = markup;
+    };
+};
+
 export async function createGallaryHome() {
     const genres = await fetchGenre();
-    const films = await fetchFilm();
-    console.log(films)
-    const genreMap = {};
-    for (const genre of genres.genres) {
-        genreMap[genre.id] = genre.name;
-    }
-    const res = films.results.map(el => {
-        el.genre = el.genre_ids.map(item => genreMap[item]);
-        return el
-    })
+    const movies = await fetchMovie();
+    const res = createGenres(genres, movies);
     const markup = generateContentGallery(res);
     mainRefs.galleryList.innerHTML = markup;
 }

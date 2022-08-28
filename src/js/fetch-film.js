@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { headerHomeRefs } from './refs';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = 'cb5d99917b11063d4e60e6f353e2f3b8';
 const PAGE_SIZE = 20;
 const currentPage = 1;
 
-export async function fetchFilm() {
+export async function fetchMovie() {
   try {
     const response = await axios.get(
       `${BASE_URL}/trending/movie/week?api_key=${KEY}&language=uk&per_page=${PAGE_SIZE}&page=${currentPage}`
@@ -14,8 +15,18 @@ export async function fetchFilm() {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
+export async function searchMovieByKey(searchKey) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/search/movie?api_key=${KEY}&language=uk&query=${searchKey}`);
+    return response.data
+  } catch (error) {
+    console.log(searchKey)
+    console.log(error);
+  }
+};
 
 export async function fetchGenre() {
   try {
@@ -26,6 +37,6 @@ export async function fetchGenre() {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 
