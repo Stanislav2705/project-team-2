@@ -39,4 +39,11 @@ export async function fetchGenre() {
   }
 };
 
+export async function searchMovieById(id) {
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}?api_key=${KEY}&language=uk`
+  );
+  return response.data;
+};
+
 
