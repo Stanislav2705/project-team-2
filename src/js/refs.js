@@ -2,7 +2,6 @@ export const headerHomeRefs = {
   inputSearch: document.querySelector('.input-js'),
   searchFofrm: document.querySelector('.search-movies-form'),
   searchBtn: document.querySelector('.search-btn-js'),
-  messageError: document.querySelector('.error-js'),
   linkLibrary: document.querySelector('.link-library-js'),
 };
 

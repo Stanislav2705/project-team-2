@@ -6,6 +6,7 @@ import {
 } from "./fetch-film";
 import { createGenres } from "./create-genres";
 import { generateContentGallery } from "./markup-list";
+import { Notify } from 'notiflix';
 createGallaryHome()
 
 headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
@@ -13,10 +14,13 @@ headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
 async function searchMovies(e) {
     e.preventDefault()
     const searchKey = headerHomeRefs.inputSearch.value.trim();
+    if (searchKey === '') {
+        return;
+    };
     const genres = await fetchGenre();
     const movie = await searchMovieByKey(searchKey);
     if (movie.results.length === 0) {
-        headerHomeRefs.messageError.textContent = 'Search result not successful. Enter the correct movie name and';
+        Notify.failure("Search result not successful. Enter the correct movie name and");
         return;
     };
     if (movie.results.length > 0) {
