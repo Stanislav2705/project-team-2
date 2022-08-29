@@ -1,14 +1,18 @@
-
 function createGallary({
   poster_path,
   original_title,
   title,
   genre,
   release_date,
-  id
+  id,
 }) {
-  const categories = genre.length >= 2 ? genre.slice(0, 2).join(', ') + ', Інші' : genre.join(', ');
-  const release = release_date ? release_date.slice(0, 4) : 'Невідомо дати релізу';
+  const categories =
+    genre.length >= 2
+      ? genre.slice(0, 2).join(', ') + ', Інші'
+      : genre.join(', ');
+  const release = release_date
+    ? release_date.slice(0, 4)
+    : 'Невідомо дати релізу';
   const markup = `<li class="section-gallery__item" id="${id}">
           <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${original_title}" id="${id}" width="280" class="section-gallery__item__img">
           <h2 class="section-gallery__item__title" id="${id}">${title}</h2>

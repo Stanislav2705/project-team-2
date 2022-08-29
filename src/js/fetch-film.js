@@ -15,18 +15,19 @@ export async function fetchMovie() {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 export async function searchMovieByKey(searchKey) {
   try {
     const response = await axios.get(
-      `${BASE_URL}/search/movie?api_key=${KEY}&language=uk&query=${searchKey}`);
-    return response.data
+      `${BASE_URL}/search/movie?api_key=${KEY}&language=uk&query=${searchKey}`
+    );
+    return response.data;
   } catch (error) {
-    console.log(searchKey)
+    console.log(searchKey);
     console.log(error);
   }
-};
+}
 
 export async function fetchGenre() {
   try {
@@ -37,13 +38,11 @@ export async function fetchGenre() {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 export async function searchMovieById(id) {
   const response = await axios.get(
     `${BASE_URL}/movie/${id}?api_key=${KEY}&language=uk`
   );
   return response.data;
-};
-
-
+}
