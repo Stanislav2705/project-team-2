@@ -6,6 +6,7 @@ import { createModalMarkup } from './create-modal-markup';
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     card: document.querySelector('.card'),
+    li: document.querySelector('.section-gallery__item'),
   };
 
   refs.openModalBtn.addEventListener('click', toggleModal);
@@ -20,13 +21,12 @@ import { createModalMarkup } from './create-modal-markup';
     refs.modal.classList.toggle('is-hidden');
     refs.card.innerHTML = '';
     
-    const id = e.target.dataset.id;
+    const id = e.target.id;
     createModal(id);
     };
 
     async function createModal(id) {
       const movie = await searchMovieById(id);
-      console.log(movie)
       refs.card.innerHTML = createModalMarkup(movie);
   }
 
