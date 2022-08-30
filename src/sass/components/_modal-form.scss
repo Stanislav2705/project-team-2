@@ -62,7 +62,7 @@
   display: inline-block;
   stroke-width: 0;
   stroke: currentColor;
-  fill: currentColor;
+  fill: var(--primary-text-color);
 }
 
 .card {
