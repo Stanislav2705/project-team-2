@@ -1,7 +1,7 @@
 import { searchMovieById } from './fetch-film';
 import { createModalMarkup } from './create-modal-markup';
-(() => {
-  const refs = {
+import { handleAddWatchedMovies } from './add-watchet-movies';
+  const refsModal = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
@@ -9,17 +9,17 @@ import { createModalMarkup } from './create-modal-markup';
     li: document.querySelector('.section-gallery__item'),
   };
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  refsModal.openModalBtn.addEventListener('click', toggleModal);
+  refsModal.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal(e) {
-    if (!refs.modal.classList.contains('is-hidden')) {
-      refs.modal.classList.toggle('is-hidden');
+    if (!refsModal.modal.classList.contains('is-hidden')) {
+      refsModal.modal.classList.toggle('is-hidden');
       return;
     };
 
-    refs.modal.classList.toggle('is-hidden');
-    refs.card.innerHTML = '';
+    refsModal.modal.classList.toggle('is-hidden');
+    refsModal.card.innerHTML = '';
     
     const id = e.target.id;
     createModal(id);
@@ -27,9 +27,14 @@ import { createModalMarkup } from './create-modal-markup';
 
     async function createModal(id) {
       const movie = await searchMovieById(id);
-      refs.card.innerHTML = createModalMarkup(movie);
+      refsModal.card.innerHTML = createModalMarkup(id, movie);
+      addBtnWatched(id);
   }
 
-})();
+  function addBtnWatched() {
+    const watchedBtnRef = document.querySelector('.add-watched-btn-js');
+    watchedBtnRef.addEventListener('click', handleAddWatchedMovies)
+  }
+
 
 export { toggleModal };

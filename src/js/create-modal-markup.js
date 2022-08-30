@@ -1,4 +1,6 @@
-export function createModalMarkup({
+import { handleAddWatchedMovies } from './add-watchet-movies';
+
+export function createModalMarkup(id, {
     vote_average,
     vote_count,
     title,
@@ -50,8 +52,9 @@ export function createModalMarkup({
         <p class="about__film">${overview}</p>
 
         <div class="film-card__buttons">
-          <button type="submit" class="modal-btn add-watched-btn-js">add to watched</button>
-          <button type="submit" class="modal-btn add-queue-btn-js">add to queue</button>
+        
+          <button type="submit" id='${id}' class="modal-btn add-watched-btn-js">add to watched</button>
+          <button type="submit" id='${id}' class="modal-btn add-queue-btn-js">add to queue</button>
         </div>`;
     return markupMovie;
 }
