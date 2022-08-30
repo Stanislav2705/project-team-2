@@ -9,4 +9,4 @@ import {
 import { generateContentGallery } from './js/markup-list';
 import { createGallaryHome } from './js/create-gallary';
 import { toggleModal } from './js/modal';
-import { main } from './js/pagination';
+// import { elem } from './js/pagination';
