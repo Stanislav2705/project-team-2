@@ -1,5 +1,3 @@
-import { handleAddWatchedMovies } from './add-watchet-movies';
-
 export function createModalMarkup(id, {
     vote_average,
     vote_count,

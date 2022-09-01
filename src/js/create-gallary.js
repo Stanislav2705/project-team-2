@@ -1,11 +1,19 @@
 import { headerHomeRefs, mainRefs } from './refs';
 import { fetchMovie, fetchGenre, searchMovieByKey } from './fetch-film';
 import { createGenres } from './create-genres';
+import { createWachedMoviesList } from './create-library-wathced-list';
 import { generateContentGallery } from './markup-list';
 import { Notify } from 'notiflix';
-createGallaryHome();
 
-headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
+
+if (mainRefs.galleryList.id === 'home') {
+  createGallaryHome();
+  headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
+};
+if (mainRefs.galleryList.id === 'library') {
+  createWachedMoviesList();
+};
+
 
 async function searchMovies(e) {
   e.preventDefault();

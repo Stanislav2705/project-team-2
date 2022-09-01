@@ -12,18 +12,15 @@ import { handleAddWatchedMovies } from './add-watchet-movies';
   refsModal.openModalBtn.addEventListener('click', toggleModal);
   refsModal.closeModalBtn.addEventListener('click', toggleModal);
 
-  function toggleModal(e) {
+function toggleModal(e) {
     if (!refsModal.modal.classList.contains('is-hidden')) {
       refsModal.modal.classList.toggle('is-hidden');
-
       return;
     }
-
+    
     // if (!isSwatchEl) {
     //   return;
     // }
-
-
     refsModal.modal.classList.toggle('is-hidden');
     refsModal.card.innerHTML = '';
     
