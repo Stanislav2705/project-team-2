@@ -6,6 +6,7 @@ export const headerHomeRefs = {
 };
 
 export const headerLibraryRefs = {
+  libraryList: document.querySelector('.section-gallery-library__list'),
   watchedBtn: document.querySelector('.watched-btn-js'),
   queueBtn: document.querySelector('.queue-btn-js'),
 };
