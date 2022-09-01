@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { headerHomeRefs } from './refs';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = 'cb5d99917b11063d4e60e6f353e2f3b8';
