@@ -15,8 +15,14 @@ import { handleAddWatchedMovies } from './add-watchet-movies';
   function toggleModal(e) {
     if (!refsModal.modal.classList.contains('is-hidden')) {
       refsModal.modal.classList.toggle('is-hidden');
+
       return;
-    };
+    }
+
+    // if (!isSwatchEl) {
+    //   return;
+    // }
+
 
     refsModal.modal.classList.toggle('is-hidden');
     refsModal.card.innerHTML = '';
@@ -35,6 +41,7 @@ import { handleAddWatchedMovies } from './add-watchet-movies';
     const watchedBtnRef = document.querySelector('.add-watched-btn-js');
     watchedBtnRef.addEventListener('click', handleAddWatchedMovies)
   }
+
 
 
 export { toggleModal };
