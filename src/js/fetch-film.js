@@ -15,6 +15,7 @@ export async function fetchMovie() {
     console.log(error);
   }
 }
+console.log(fetchMovie());
 
 export async function searchMovieByKey(searchKey) {
   try {
