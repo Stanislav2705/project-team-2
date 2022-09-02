@@ -29,7 +29,7 @@
     width: 670px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 800px;
   }
   background-color: var(--footer-bg-color);
@@ -48,14 +48,6 @@
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-  // &:hover,
-  // &:focus {
-  //   border-color: var(--accent-color);
-  // }
-  // &:hover .modal-close__icon,
-  // &:focus .modal-close__icon {
-  //   fill: var(--accent-color);
-  // }
 }
 
 .modal-close__icon {
@@ -73,8 +65,10 @@
     padding: 40px 40px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     padding: 40px 12px;
+    width: 806px;
+    height: 600px;
     justify-content: none;
   }
 }
@@ -83,19 +77,24 @@
   @media screen and (min-width: 768px) {
     width: 264px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 390px;
   }
 }
 
 .film-card__picture {
-  margin-bottom: 20px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
 }
 
 .film-card__picture_img {
   display: block;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 375px;
+    height: 100%;
   }
 }
 
@@ -104,7 +103,7 @@
   line-height: 1.15;
   text-transform: uppercase;
   margin-bottom: 20px;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 30px;
     line-height: 1.16;
   }
@@ -144,13 +143,15 @@
 }
 
 .about__film {
+  max-height: 250px;
+  overflow: auto;
   font-size: 12px;
   line-height: 1.67;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 20px;
   }
 }
@@ -158,7 +159,7 @@
 .film-card__buttons {
   display: flex;
   justify-content: space-between;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     justify-content: flex-start;
   }
 }
@@ -168,4 +169,8 @@
   color: var(--primary-bg-color);
   padding: 1px 10px;
   border-radius: 5px;
+}
+
+.fixed {
+  overflow: hidden;
 }

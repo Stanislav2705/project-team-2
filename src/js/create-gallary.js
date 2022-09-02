@@ -1,4 +1,4 @@
-import { headerHomeRefs, mainRefs } from './refs';
+import { headerHomeRefs, mainRefs, headerLibraryRefs } from './refs';
 import { fetchMovie, fetchGenre, searchMovieByKey } from './fetch-film';
 import { createGenres } from './create-genres';
 import { createWachedMoviesList } from './create-library-wathced-list';
@@ -12,6 +12,7 @@ if (mainRefs.galleryList.id === 'home') {
 };
 if (mainRefs.galleryList.id === 'library') {
   createWachedMoviesList();
+  headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
 };
 
 
@@ -44,3 +45,8 @@ export async function createGallaryHome() {
   const markup = generateContentGallery(res);
   mainRefs.galleryList.innerHTML = markup;
 }
+
+function onClickBtnWached() {
+  createWachedMoviesList();
+  headerLibraryRefs.watchedBtn.setAttribute("disabled", "disabled");
+};
