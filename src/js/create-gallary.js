@@ -5,19 +5,19 @@ import { createWachedMoviesList } from './create-library-wathced-list';
 import { generateContentGallery } from './markup-list';
 import { Notify } from 'notiflix';
 
-
 if (mainRefs.galleryList.id === 'home') {
   createGallaryHome();
   headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
-};
+}
 if (mainRefs.galleryList.id === 'library') {
   createWachedMoviesList();
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
-};
-
+  // headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnWached);
+}
 
 async function searchMovies(e) {
   e.preventDefault();
+  console.log(isCard);
   const searchKey = headerHomeRefs.inputSearch.value.trim();
   if (searchKey === '') {
     return;
@@ -48,5 +48,5 @@ export async function createGallaryHome() {
 
 function onClickBtnWached() {
   createWachedMoviesList();
-  headerLibraryRefs.watchedBtn.setAttribute("disabled", "disabled");
-};
+  headerLibraryRefs.watchedBtn.setAttribute('disabled', 'disabled');
+}
