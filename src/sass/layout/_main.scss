@@ -6,7 +6,7 @@
     margin-bottom: -32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-right: -16px;
     margin-bottom: -32px;
   }
@@ -30,7 +30,7 @@
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     flex-basis: calc((100% - 48px) / 3);
     margin-right: 16px;
     margin-bottom: 32px;
@@ -42,7 +42,7 @@
     width: 336px;
     height: 455px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 395px;
     height: 574px;
   }
@@ -54,7 +54,7 @@
   text-transform: uppercase;
   margin-top: 8px;
   margin-bottom: 3px;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 12px;
     font-size: 20px;
     line-height: 1.2;
@@ -66,7 +66,7 @@
   line-height: 1.34;
   color: var(--accent-color);
   margin-bottom: 5px;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 20px;
     line-height: 1.2;
   }
@@ -109,8 +109,3 @@
   border-radius: 3px;
 }
 
-// .active {
-//   color: var(--primary-bg-color);
-//   background-color: var(--accent-color);
-//   border-radius: 3px;
-// }
