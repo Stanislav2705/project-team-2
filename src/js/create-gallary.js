@@ -2,6 +2,7 @@ import { headerHomeRefs, mainRefs, headerLibraryRefs } from './refs';
 import { fetchMovie, fetchGenre, searchMovieByKey } from './fetch-film';
 import { createGenres } from './create-genres';
 import { createWachedMoviesList } from './create-library-wathced-list';
+import { createQueueMoviesList } from './create-library-queue-list';
 import { generateContentGallery } from './markup-list';
 import { Notify } from 'notiflix';
 
@@ -12,7 +13,7 @@ if (mainRefs.galleryList.id === 'home') {
 if (mainRefs.galleryList.id === 'library') {
   createWachedMoviesList();
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
-  // headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnWached);
+  headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
 
 async function searchMovies(e) {
@@ -48,5 +49,13 @@ export async function createGallaryHome() {
 
 function onClickBtnWached() {
   createWachedMoviesList();
-  headerLibraryRefs.watchedBtn.setAttribute('disabled', 'disabled');
+  headerLibraryRefs.queueBtn.classList.remove('btn-active');
+  headerLibraryRefs.watchedBtn.classList.add('btn-active');
+  // headerLibraryRefs.watchedBtn.setAttribute('disabled', 'disabled');
+}
+
+function onClickBtnQueue() {
+  createQueueMoviesList();
+  headerLibraryRefs.watchedBtn.classList.remove('btn-active');
+  headerLibraryRefs.queueBtn.classList.add('btn-active');
 }

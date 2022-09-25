@@ -1,6 +1,7 @@
 import { searchMovieById } from './fetch-film';
 import { createModalMarkup } from './create-modal-markup';
 import { handleAddWatchedMovies } from './add-watchet-movies';
+import { handleAddQueueMovies } from './add-queue-movies';
 const refsModal = {
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
@@ -42,11 +43,17 @@ async function createModal(id) {
   const movie = await searchMovieById(id);
   refsModal.card.innerHTML = createModalMarkup(id, movie);
   addBtnWatched(id);
+  addBtnQueue(id);
 }
 
 function addBtnWatched() {
   const watchedBtnRef = document.querySelector('.add-watched-btn-js');
   watchedBtnRef.addEventListener('click', handleAddWatchedMovies);
+}
+
+function addBtnQueue() {
+  const queueBtnRef = document.querySelector('.add-queue-btn-js');
+  queueBtnRef.addEventListener('click', handleAddQueueMovies);
 }
 
 function onEscape({ code }) {

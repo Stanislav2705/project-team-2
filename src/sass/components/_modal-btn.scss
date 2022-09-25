@@ -34,3 +34,9 @@
     margin-left: 8px;
   }
 }
+
+.active {
+  color: var(--primary-bg-color);
+  background-color: var(--accent-color);
+  border: none;
+}

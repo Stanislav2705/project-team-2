@@ -93,6 +93,7 @@
   margin: 10px;
   padding: 10px 15px;
   justify-content: center;
+  cursor: pointer;
 }
 
 .icon-btn {
@@ -109,3 +110,8 @@
   border-radius: 3px;
 }
 
+.active {
+  color: var(--primary-bg-color);
+  fill: var(--primary-bg-color);
+  background-color: var(--accent-color);
+}
