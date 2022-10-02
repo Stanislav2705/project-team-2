@@ -1,91 +1,103 @@
 import axios from 'axios';
 import { generateContentGallery } from '../js/markup-list';
 import { fetchMovie, fetchGenre, searchMovieByKey } from '../js/fetch-film';
-// let PAGE_SIZE = 20;
-// let currentPage = 1;
-// let pageCount = 20;
-// let start = 1;
-// let end = 5;
-// const paginat = document.querySelector('#pagination-container');
-// const container = document.querySelector('#data-container');
+import { PAGE_SIZE, currentPage } from '../js/fetch-film';
 
-const ulTag = document.querySelector('.pagination__list');
-// const liactive = document.querySelector('.active');
-// const leftBtn = document.querySelector('.left');
-// const rightBtn = document.querySelector('.right');
-// let allPage = 15;
-// let page = 2;
+const pageCount = 5;
 
-export function elem(allPage, page) {
-  let liTag = '';
-  let activeLi;
-  let beforePages = page - 1;
-  let afterPages = page + 1;
+const paginationNumbers = document.getElementById('pagination-numbers');
+const paginatedList = document.getElementById('.paginated-list');
+// const listItems = paginatedList.querySelectorAll('li');
+const nextButton = document.getElementById('next-button');
+const prevButton = document.getElementById('prev-button');
 
-  // let beforePages = page - 1;
-  // let afterPages = page + 1;
-  // let liActive;
+const appendPageNumber = index => {
+  const pageNumber = document.createElement('button');
+  pageNumber.className = 'pagination-number';
+  pageNumber.innerHTML = index;
+  pageNumber.setAttribute('page-index', index);
+  pageNumber.setAttribute('aria-label', 'Page ' + index);
 
-  // function add() {
-  //   leftBtn.addEventListener('click', elem(allPage, beforePages));
-  // }
-  // console.log(add());
+  paginationNumbers.appendChild(pageNumber);
+};
 
-  if (page > 1) {
-    liTag += `<li class="pagination__item icon-btn left button">
-        	<svg class="icon-arrow-left" width="25" height="25">
-            <use href="./images/symbol-defs.svg#icon-arrow-left"></use>
-          </svg>
-        </li>`;
+const getPaginationNumbers = () => {
+  for (let i = 1; i <= pageCount; i++) {
+    appendPageNumber(i);
   }
+};
 
-  for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
-    if (page === pageLength) {
-      activeLi = 'active';
-    } else {
-      activeLi = '';
+window.addEventListener('load', () => {
+  getPaginationNumbers();
+  setCurrentPage(1);
+
+  prevButton.addEventListener('click', () => {
+    setCurrentPage(currentPage - 1);
+  });
+
+  nextButton.addEventListener('click', () => {
+    setCurrentPage(currentPage + 1);
+  });
+
+  document.querySelectorAll('.pagination-number').forEach(button => {
+    const pageIndex = Number(button.getAttribute('page-index'));
+
+    if (pageIndex) {
+      button.addEventListener('click', () => {
+        setCurrentPage(pageIndex);
+      });
     }
-    liTag += `<li class="pagination__item ${activeLi} numb">${pageLength}</li>`;
+  });
+});
+
+const handleActivePageNumber = () => {
+  document.querySelectorAll('.pagination-number').forEach(button => {
+    button.classList.remove('active');
+
+    const pageIndex = Number(button.getAttribute('page-index'));
+    if (pageIndex == currentPage) {
+      button.classList.add('active');
+    }
+  });
+};
+
+const setCurrentPage = pageNum => {
+  currentPage = pageNum;
+
+  handleActivePageNumber();
+  handlePageButtonsStatus();
+
+  const prevRange = (pageNum - 1) * PAGE_SIZE;
+  const currRange = pageNum * PAGE_SIZE;
+
+  // generateContentGallery((item, index) => {
+  //   item.classList.add('hidden');
+  //   if (index >= prevRange && index < currRange) {
+  //     item.classList.remove('hidden');
+  //   }
+  // });
+};
+
+const disableButton = button => {
+  button.classList.add('disabled');
+  button.setAttribute('disabled', true);
+};
+
+const enableButton = button => {
+  button.classList.remove('disabled');
+  button.removeAttribute('disabled');
+};
+
+const handlePageButtonsStatus = () => {
+  if (currentPage === 1) {
+    disableButton(prevButton);
+  } else {
+    enableButton(prevButton);
   }
 
-  if (page < allPage) {
-    liTag += `<li class="pagination__item icon-btn right button">
-          <svg class="icon-arrow-right" width="25" height="25">
-            <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
-          </svg>
-        </li>`;
+  if (pageCount === currentPage) {
+    disableButton(nextButton);
+  } else {
+    enableButton(nextButton);
   }
-
-  ulTag.innerHTML = liTag;
-
-  // for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
-  //   if (pageLength > allPage) {
-  //     continue;
-  //   }
-  //   if (pageLength === 0) {
-  //     pageLength = pageLength + 1;
-  //   }
-  //   if (page === pageLength) {
-  //     liActive = 'active';
-  //   } else {
-  //     liActive = '';
-  //   }
-  //   li += `<li class="pagination__item numb ${liActive}">${pageLength}</li>`;
-
-  //   // onclick="elem(allPage,${pageLength}
-  // }
-
-  // if (page < allPage) {
-  //   // onclick="elem(allPage,${
-  //   //   page + 1
-  //   // })"
-
-  //   li += `<li class="pagination__item icon-btn right button">
-  //         &#10097;
-  //       </li>`;
-  // }
-
-  // ul.innerHTML = li;
-}
-
-elem(20, 5);
+};

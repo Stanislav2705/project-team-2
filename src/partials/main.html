@@ -1,32 +1,31 @@
 <main>
   <section class="section container">
     <div class="section-gallery">
-      <ul class="section-gallery__list" id="home" data-modal-open>
+      <ul class="section-gallery__list paginated-list" id="home" data-modal-open>
       </ul>
     </div>
     <!-- <div id="data-container"></div>
     <div id="pagination-container"></div> -->
-    <div class="pagination">
-      <ul class="pagination__list">
-        <!-- <li class="pagination__item icon-btn left button">
-          <svg class="icon-arrow-left" width="25" height="25">
-            <use href="./images/symbol-defs.svg#icon-arrow-left"></use>
-          </svg>
-        </li>
-        <li class="pagination__item numb active">1</li>
-        <li class="pagination__item numb">2</li>
-        <li class="pagination__item numb">3</li>
-        <li class="pagination__item numb">4</li>
-        <li class="pagination__item numb">5</li>
-        <li class="pagination__item icon-btn right button">
-          <svg class="icon-arrow-right" width="25" height="25">
-            <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
-          </svg>
-        </li> -->
+    <div class="pagination-container">
+      <button class="pagination-button" id="prev-button" title="Previos page" aria-label="Previous page">
+        &lt;
+        <!-- <svg class="icon-arrow-left" width="25" height="25">
+          <use href="./images/symbol-defs.svg#icon-arrow-left"></use>
+        </svg> -->
+      </button>
 
-      </ul>
+      <div id="pagination-numbers">
+
+      </div>
+
+      <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
+        &gt;
+        <!-- <svg class="icon-arrow-right" width="25" height="25">
+          <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
+        </svg> -->
+      </button>
     </div>
   </section>
-  <div id="data-container"></div>
-  <div id="pagination-container"></div>
+  <!-- <div id="data-container"></div>
+  <div id="pagination-container"></div> -->
 </main>
