@@ -94,7 +94,8 @@
 
 .pagination-number:hover,
 .pagination-button:not(.disabled):hover {
-  background: #fff;
+  color: #fff;
+  background: var(--accent-color);
 }
 
 .pagination-number.active {
