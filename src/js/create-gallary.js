@@ -5,6 +5,7 @@ import { createWachedMoviesList } from './create-library-wathced-list';
 import { createQueueMoviesList } from './create-library-queue-list';
 import { generateContentGallery } from './markup-list';
 import { Notify } from 'notiflix';
+import { paginationList } from './pagination';
 
 if (mainRefs.galleryList.id === 'home') {
   createGallaryHome();
@@ -15,10 +16,12 @@ if (mainRefs.galleryList.id === 'library') {
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
   headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
+if (mainRefs.galleryList.id === 'home') {
+  window.addEventListener('load', paginationList());
+}
 
 async function searchMovies(e) {
   e.preventDefault();
-  console.log(isCard);
   const searchKey = headerHomeRefs.inputSearch.value.trim();
   if (searchKey === '') {
     return;
