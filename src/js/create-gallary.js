@@ -16,6 +16,7 @@ if (mainRefs.galleryList.id === 'library') {
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
   headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
+
 if (mainRefs.galleryList.id === 'home') {
   window.addEventListener('load', paginationList());
 }
