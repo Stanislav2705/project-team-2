@@ -10,7 +10,7 @@ const nextButton = document.getElementById('next-button');
 const prevButton = document.getElementById('prev-button');
 
 const paginationLimit = PAGE_SIZE;
-const pageCount = 5;
+const pageCount = PAGE_SIZE / 4;
 
 const disableButton = button => {
   button.classList.add('disabled');
