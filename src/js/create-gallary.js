@@ -10,15 +10,13 @@ import { paginationList } from './pagination';
 if (mainRefs.galleryList.id === 'home') {
   createGallaryHome();
   headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
+  window.addEventListener('DOMContentLoaded', paginationList);
 }
+
 if (mainRefs.galleryList.id === 'library') {
   createWachedMoviesList();
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
   headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnQueue);
-}
-
-if (mainRefs.galleryList.id === 'home') {
-  window.addEventListener('load', paginationList());
 }
 
 async function searchMovies(e) {

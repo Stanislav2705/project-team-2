@@ -13,7 +13,7 @@ function createGallary({
   const release = release_date
     ? release_date.slice(0, 4)
     : 'Невідомо дати релізу';
-  const markup = `<li class="section-gallery__item" id="${id}">
+  const markup = `<li class="section-gallery__item paginated-list" id="${id}">
           <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${original_title}" id="${id}" width="280" class="section-gallery__item__img">
           <h2 class="section-gallery__item__title" id="${id}">${title}</h2>
           <p class="section-gallery__item__description" id="${id}">${categories} | ${release}</p>

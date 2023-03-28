@@ -1,17 +1,18 @@
 import axios from 'axios';
 import { generateContentGallery } from '../js/markup-list';
+import { fetchMovie } from './fetch-film';
 // import { fetchMovie, fetchGenre, searchMovieByKey } from '../js/fetch-film';
-import { PAGE_SIZE, currentPage } from '../js/fetch-film';
+// import { PAGE_SIZE,currentPage } from '../js/fetch-film';
 
 const paginationNumbers = document.getElementById('pagination-numbers');
 const paginatedList = document.getElementById('home');
-const listItems = paginatedList.querySelectorAll('li');
+const listItems = paginatedList.querySelectorAll('paginated-list');
 const nextButton = document.getElementById('next-button');
 const prevButton = document.getElementById('prev-button');
 
-const paginationLimit = PAGE_SIZE;
-const currentPages = currentPage;
+export let PAGE_SIZE = 20;
 const pageCount = PAGE_SIZE / 4;
+export var currentPage = 2;
 
 const disableButton = button => {
   button.classList.add('disabled');
@@ -24,13 +25,13 @@ const enableButton = button => {
 };
 
 const handlePageButtonsStatus = () => {
-  if (currentPages === 1) {
+  if (currentPage === 1) {
     disableButton(prevButton);
   } else {
     enableButton(prevButton);
   }
 
-  if (pageCount === currentPages) {
+  if (pageCount === currentPage) {
     disableButton(nextButton);
   } else {
     enableButton(nextButton);
@@ -42,7 +43,7 @@ const handleActivePageNumber = () => {
     button.classList.remove('active');
 
     const pageIndex = Number(button.getAttribute('page-index'));
-    if (pageIndex === currentPages) {
+    if (pageIndex === currentPage) {
       button.classList.add('active');
     }
   });
@@ -65,13 +66,13 @@ const getPaginationNumbers = () => {
 };
 
 const setCurrentPage = pageNum => {
-  currentPages = pageNum;
+  currentPage = pageNum;
 
   handleActivePageNumber();
   handlePageButtonsStatus();
 
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
+  const prevRange = (pageNum - 1) * PAGE_SIZE;
+  const currRange = pageNum * PAGE_SIZE;
 
   listItems.forEach((item, index) => {
     item.classList.add('hidden');
@@ -88,11 +89,12 @@ export function paginationList() {
   setCurrentPage(1);
 
   prevButton.addEventListener('click', () => {
-    setCurrentPage(currentPages - 1);
+    setCurrentPage(currentPage - 1);
   });
 
   nextButton.addEventListener('click', () => {
-    setCurrentPage(currentPages + 1);
+    setCurrentPage(currentPage + 1);
+    console.log(fetchMovie);
   });
 
   document.querySelectorAll('.pagination-number').forEach(button => {

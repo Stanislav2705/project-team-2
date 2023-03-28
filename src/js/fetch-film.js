@@ -1,15 +1,17 @@
 import axios from 'axios';
+import { currentPage, PAGE_SIZE } from './pagination';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = 'cb5d99917b11063d4e60e6f353e2f3b8';
-export const PAGE_SIZE = 10;
-export const currentPage = 1;
+// export const PAGE_SIZE = 20;
+// export let currentPage = 1;
 
 export async function fetchMovie() {
   try {
     const response = await axios.get(
       `${BASE_URL}/trending/movie/week?api_key=${KEY}&language=uk&per_page=${PAGE_SIZE}&page=${currentPage}`
     );
+    currentPage += 1;
     return response.data;
   } catch (error) {
     console.log(error);
