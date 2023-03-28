@@ -1,16 +1,21 @@
 import { headerHomeRefs, mainRefs, headerLibraryRefs } from './refs';
-import { fetchMovie, fetchGenre, searchMovieByKey } from './fetch-film';
+import {
+  fetchMovie,
+  fetchGenre,
+  searchMovieByKey,
+  paginationList,
+  listItems,
+} from './fetch-film';
 import { createGenres } from './create-genres';
 import { createWachedMoviesList } from './create-library-wathced-list';
 import { createQueueMoviesList } from './create-library-queue-list';
 import { generateContentGallery } from './markup-list';
 import { Notify } from 'notiflix';
-import { paginationList } from './pagination';
 
 if (mainRefs.galleryList.id === 'home') {
-  createGallaryHome();
+  // createGallaryHome();
   headerHomeRefs.searchFofrm.addEventListener('submit', searchMovies);
-  window.addEventListener('DOMContentLoaded', paginationList);
+  window.addEventListener('load', paginationList);
 }
 
 if (mainRefs.galleryList.id === 'library') {
