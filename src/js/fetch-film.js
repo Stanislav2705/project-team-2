@@ -1,13 +1,14 @@
 import axios from 'axios';
+import { createGallaryHome } from './create-gallary';
 // import { currentPage, PAGE_SIZE } from './pagination';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = 'cb5d99917b11063d4e60e6f353e2f3b8';
 // export const PAGE_SIZE = 20;
 // export let currentPage = 1;
-let PAGE_SIZE = 20;
+const PAGE_SIZE = 20;
 const pageCount = PAGE_SIZE / 4;
-let currentPage = 2;
+let currentPage = 1;
 
 const paginationNumbers = document.getElementById('pagination-numbers');
 const paginatedList = document.getElementById('home');
@@ -20,7 +21,6 @@ export async function fetchMovie() {
     const response = await axios.get(
       `${BASE_URL}/trending/movie/week?api_key=${KEY}&language=uk&per_page=${PAGE_SIZE}&page=${currentPage}`
     );
-    // currentPage += 1;
     return response.data;
   } catch (error) {
     console.log(error);
@@ -104,6 +104,11 @@ const appendPageNumber = index => {
 };
 
 const getPaginationNumbers = () => {
+  // const pageIndex = pageCount * indexPage;
+  // let b = 1;
+  // if (pageIndex >= 5) {
+  //   b = 5;
+  // }
   for (let i = 1; i <= pageCount; i++) {
     appendPageNumber(i);
   }
@@ -124,11 +129,15 @@ const setCurrentPage = pageNum => {
       item.classList.remove('hidden');
     }
   });
+  console.log(currentPage);
+  console.log(fetchMovie());
+  createGallaryHome();
+  // fetchMovie();
 };
 
 // window.addEventListener('load', paginationList());
 
-export function paginationList() {
+export async function paginationList() {
   getPaginationNumbers();
   setCurrentPage(1);
 
@@ -136,9 +145,8 @@ export function paginationList() {
     setCurrentPage(currentPage - 1);
   });
 
-  nextButton.addEventListener('click', async () => {
+  nextButton.addEventListener('click', () => {
     setCurrentPage(currentPage + 1);
-    await fetchMovie();
   });
 
   document.querySelectorAll('.pagination-number').forEach(button => {
