@@ -4,7 +4,6 @@ import {
   fetchGenre,
   searchMovieByKey,
   paginationList,
-  listItems,
 } from './fetch-film';
 import { createGenres } from './create-genres';
 import { createWachedMoviesList } from './create-library-wathced-list';
