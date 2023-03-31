@@ -132,7 +132,7 @@ const setCurrentPage = pageNum => {
   console.log(currentPage);
   console.log(fetchMovie());
   createGallaryHome();
-  // fetchMovie();
+  window.scrollTo(0, 0);
 };
 
 // window.addEventListener('load', paginationList());
