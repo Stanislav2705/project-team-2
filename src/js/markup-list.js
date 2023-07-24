@@ -1,3 +1,5 @@
+import { mainRefs } from './refs';
+
 function createGallary({
   poster_path,
   original_title,
