@@ -1,20 +1,9 @@
-<<<<<<< Updated upstream
-function createGallary({
-  poster_path,
-  original_title,
-  title,
-  genre,
-  release_date,
-  id,
-}) {
-=======
 import { mainRefs } from './refs';
 
 function createGallary(
   { poster_path, original_title, title, genre, release_date, id },
   listItemClass
 ) {
->>>>>>> Stashed changes
   const categories =
     genre.length >= 2
       ? genre.slice(0, 2).join(', ') + ', Інші'
