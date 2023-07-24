@@ -1,13 +1,9 @@
 import { mainRefs } from './refs';
 
-function createGallary({
-  poster_path,
-  original_title,
-  title,
-  genre,
-  release_date,
-  id,
-}) {
+function createGallary(
+  { poster_path, original_title, title, genre, release_date, id },
+  listItemClass
+) {
   const categories =
     genre.length >= 2
       ? genre.slice(0, 2).join(', ') + ', Інші'
