@@ -32,10 +32,10 @@ function createLibraryGallary({
   const release = release_date
     ? release_date.slice(0, 4)
     : 'Невідомо дати релізу';
-  const markup = `<li class="ssection-gallery-library__item" id="${id}">
-          <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${original_title}" id="${id}" width="280" class="section-gallery__item__img">
-          <h2 class="section-gallery__item__title" id="${id}">${title}</h2>
-          <p class="section-gallery__item__description" id="${id}">${genresMovies} | ${release}</p>
+  const markup = `<li class="section-gallery-library__item" id="${id}">
+          <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${original_title}" id="${id}" width="280" class="section-gallery-library__item__img">
+          <h2 class="section-gallery-library__item__title" id="${id}">${title}</h2>
+          <p class="section-gallery-library__item__description" id="${id}">${genresMovies} | ${release}</p>
         </li>`;
   return markup;
 }
