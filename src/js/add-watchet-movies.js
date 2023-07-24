@@ -32,5 +32,3 @@ export async function handleAddWatchedMovies({ target }) {
     console.log(error);
   }
 }
-
-
