@@ -10,11 +10,19 @@ const PAGE_SIZE = 20;
 const pageCount = PAGE_SIZE / 4;
 let currentPage = 1;
 
-const paginationNumbers = document.getElementById('pagination-numbers');
-const paginatedList = document.getElementById('home');
-const listItems = paginatedList.querySelectorAll('paginated-list');
-const nextButton = document.getElementById('next-button');
-const prevButton = document.getElementById('prev-button');
+let paginationNumbers;
+let paginatedList;
+let listItems;
+let nextButton;
+let prevButton;
+
+if (mainRefs.galleryList.id === 'home') {
+  const paginationNumbers = document.getElementById('pagination-numbers');
+  const paginatedList = document.getElementById('home');
+  const listItems = paginatedList.querySelectorAll('paginated-list');
+  const nextButton = document.getElementById('next-button');
+  const prevButton = document.getElementById('prev-button');
+}
 
 export async function fetchMovie() {
   try {
