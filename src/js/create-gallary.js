@@ -17,7 +17,7 @@ if (mainRefs.galleryList.id === 'home') {
   window.addEventListener('load', paginationList);
 }
 
-if (headerLibraryRefs.libraryList.id === 'library') {
+if (headerLibraryRefs.libraryList.id === 'home') {
   createWachedMoviesList();
   headerLibraryRefs.watchedBtn.addEventListener('click', onClickBtnWached);
   headerLibraryRefs.queueBtn.addEventListener('click', onClickBtnQueue);
